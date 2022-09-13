@@ -1,2 +1,4 @@
-# lista_pa
-Lista Programação Avançada
+# LISTA PROGRAMAÇÃO AVANÇADA
+Integrantes:
+ • Erika Fernandes
+ 
