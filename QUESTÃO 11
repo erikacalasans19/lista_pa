@@ -1,1 +1,28 @@
+#include <stdio.h>
 
+int main(void) {
+ //aloha[2] = value;
+  // É válido pois o valor armazenado em "value" coincide com o tipo do array "aloha".
+
+//scanf("%f", &aloha);
+  //É válido porém é necessário que o vetor seja preenchido para que na saída não apareça valores como lixo.
+  
+//aloha = value;
+  //Não é válido pois o array não está especificado com o endereço de memória de alguma posição.
+  
+//printf("%f", aloha);
+  //É válido pois irá mostrar na saída do ppeograma o elemento da primeira posição do array.
+  
+//coisas[4][4] = aloha[3];
+  //É válido pois o elemento "coisas[4][4]" assume o valor armazenado no array "aloha[3]".
+  
+//coisas[5] = aloha;
+  //Não é válido pois não é possível uma variável assumir um array.
+  
+//pf = value;
+  //Não é válido pois as variáveis não são compatíveis: "pf" é do tipo ponteiro e só pode assumir valores inteiros.
+  
+//pf = aloha
+  //É válido, pois "pf" está apontando para o array "aloha".
+  return 0;
+}
