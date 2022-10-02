@@ -1,1 +1,21 @@
+//Uma função é um conjunto de códigos em seqeuência que executam uma função específica e possuem um espaço reservado na memória. Um ponteiro para função aponta para a função o qual foi atribuido que assumem a mesma sequência lógica que essa função e viabilizando o acesso a essa função sem precisar escrever seu nome explicitamente no programa.
+
+int areatriangulo (int b, int h){
+  return (b*h)/2;
+}
+int main (void){
+  int b,h,a;
+  int (*p) (int,int); 
+  printf("Insira um número para a base: ");
+  scanf("%d", &b);
+  printf("Insira um número para a altura: ");
+   scanf("%d", &h);
+
+  p = areatriangulo;
+  a = p(b,h);
+
+  printf("ÁREA DO TRIÂNGULO: %d\n", a);
+
+  return 0;
+}
 
