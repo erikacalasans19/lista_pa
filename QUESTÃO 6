@@ -16,8 +16,7 @@ int *p3 = pulo + 4;
 printf("%d\n", *p3);//ERRADO
 
 int *p4 = pulo + 2;
-printf("%d\n", *p4);
-//CORRETO
+printf("%d\n", *p4);//CORRETO
 
 //Não é possível incrementar valores do tipo int aos ponteiros.
   return 0;
