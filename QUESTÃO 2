@@ -1,1 +1,10 @@
+#include <stdio.h>
 
+int main(void) {
+ int i=5, *p;
+p = &i;
+printf("%X %d %d %d %d", p,*p+2,**&p,3**p,**&p+4);
+//Resultado: 5AE6122C 7 5 15 9
+
+  return 0;
+}
