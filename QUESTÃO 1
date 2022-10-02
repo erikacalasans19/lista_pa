@@ -1,1 +1,20 @@
+#include <stdio.h>
 
+int main(void) {
+  int i=3,j=5;
+  int *p, *q;
+  p = &i;
+  q = &j;
+
+  printf("%d\n", p == &i);
+  // operação lógica de verdadeiro ou falso: p guarda endereço de memoria de i? vdd (1)
+ 
+ printf ("%d\n", *p -*q); 
+  //"*p" e "*q" assumem o papel de ponteiros que armazenam os endereços de memória das variáveis "i" e "j" respectivamente e por isso vão executar a operação a cima resgatando a informação que foi salva nas variáveis, nesse caso i = 3 e j = 2, então *p-*q = -2
+ 
+ printf("%d\n", **&p);
+  // o que tem no endereço de p? o endereço de i
+  // o que tem no endereço de i? 3
+  
+  return 0;
+}
