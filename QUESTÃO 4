@@ -1,1 +1,89 @@
+#include <stdio.h>
 
+int main() {
+  int valor;
+  int *p1;
+  float temp;
+  float *p2;
+  char aux;
+  char *nome = "Ponteiros";
+  char *p3;
+  int idade;
+  int vetor[3];
+  int *p4;
+  int *p5;
+  
+  // (a) 
+  valor = 10;
+  p1 = &valor; 
+  //Armazena o endereço de memória da variável 'valor'.
+  *p1 = 20;
+  //Armazena o valor '20' no endereço de memória 'p1' que tbm armazena o endereço de memória de 'valor'
+  printf("%d \n", valor); // A variável 'valor' foi alterada
+
+  // (b) 
+  temp = 26.5;
+  p2 = &temp;//"p2" armazena o endereço de memória da variável "temp"
+  *p2 = 29.0;// armazena também um valor para "p2" que também armazena o endereço de memória de "temp".
+  printf("%.1f \n", temp); //Houve uma alteração na variável "temp" devido a inserção de um valor para "p2".
+  
+  // (c) 
+  p3 = &nome[0];// "p3" aponta para o endereço de memória do vetor "nome[0]", ou seja, o seu primeiro elemento.
+  aux = *p3;//A variável "aux" recebe o conteúdo do ponteiro "p3"
+  printf("%c \n", aux);//É mostrado o conteúdo de "p3",  que é o endereço de memória do array "nome[0]", ou seja, "P".
+  
+  // (d) 
+  p3 = &nome[4];// "p3" recebe o endereço de memória do array "nome[4]", ou seja, o quinto elemento do vetor "nome".
+  aux = *p3;// a variável auxiliar "aux" recebe o conteúdo do "p3"
+  printf("%c \n", aux);//É mostrado o conteúdo de "aux", ou seja, o que está guardado no endereço de memória de "nome[4]": e. 
+  
+  // (e) 
+  p3 = nome;// Armazena o endereço do primeiro elemento do array "nome" já que não houve especificação do elemento
+  printf("%c \n", *p3);//Será mostrado o primeiro elemento do array "nome", ou seja, P.
+  
+  // (f) 
+  p3 = p3 +4;//"p3" aramzena o endereço de memória do array "nome", portanto "p3" é do tipo char (1 byte) e irá se deslocar 4 bytes pra frente.
+  printf("%c \n", *p3);// Será mostrado o elemento "nome[4]", ou seja, "e".
+  
+  // (g) 
+  p3--;// o ponteiro "p3" irá voltar 1 byte, ou seja, irá voltar de "nome[4]" para "nome[3]".
+  printf("%c \n", *p3);//será mostrado o elemento "nome[3]", ou seja, "t"
+  
+  // (h) 
+  vetor[0] = 31;
+  vetor[1] = 45;
+  vetor[2] = 27;
+  //foram armazenados 3 valores em diferentes posições no array "vetor".
+  p4 = vetor;//o ponteiro "p4" aponta para o array "vetor" sem especificação de posição
+  idade = *p4;// a variável idade recebe o endereço de memória que foi armazenado no ponteiro "p4".
+  printf("%d \n", idade);//como não houve especificação de posição, o ponteiro "p4" irá armazenar o que o endereço da posição "vetor[0]", e portanto o que será mostrado será o valor armazenado nessa posição, ou seja, 31. 
+  
+  // (i) 
+  p5 = p4 +1;// o ponteiro "p5" armazena o endereço do ponteiro "p4" avançando 1 unidade na memória.
+  idade = *p5;// a variável idade recebe o endereço de memória armazenado em "p5".
+  printf("%d \n", idade);// Resultado: "vetor[1]" e será mostrado o valor "45".
+  
+  // (j) 
+  p4 = p5 +1;//o ponteiro "p4" recebe o endereço de memória de "p5" avançando 1 unidade de memória.
+  idade = *p4;//a variável idade recebe o endereço de memória armazenado em "p4".
+  printf("%d \n", idade);// Resultado: "vetor[2]" e será mostrado o valor "27".
+  
+  // (l) 
+  p4 = p4 -2;// o ponteiro "p4" armazena o seu próprio endereço voltando  2 unidades de memória.(estava em 27 e irá para 32).
+  idade = *p4;//a variável idade recebe o endereço de memória armazenado em "p4".
+  printf("%d \n", idade);
+  //Resultado: "vetor[0]" e será mostrado o valor "31".
+  
+
+  // (m) 
+  p5 = &vetor[2] - 1;//o ponteiro "p5" recebe o endereço de memória do array "vetor[2]" voltando 1 unidade de memória.
+  printf("%d \n", *p5);
+  //Resultado: "vetor[1]" e será mostrado o valor "45".
+  
+  
+  // (n) 
+  p5++;//o endereço do ponteiro "p5" irá se deslocar 1 unidade de memória. 
+  printf("%d \n", *p5); //Resultado: "vetor[2]" e será mostrado o valor "27".
+  return(0);
+}
+  
