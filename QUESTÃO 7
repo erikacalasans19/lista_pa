@@ -1,1 +1,15 @@
+#include <stdio.h>
 
+int main(void) {
+  int mat[4];
+  int *p;
+  int x;
+
+p = mat + 1;//1
+p = mat++;  //2
+p = ++mat;  //3
+x = (*mat)++;//4
+
+  return 0;
+}
+//Apenas a operação 1 e 4 estão corretas, pois não se pode incrementar valor do tipo int aos ponteiros.
