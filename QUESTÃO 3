@@ -1,1 +1,9 @@
+p = i; //Há um problema nessa atribuição mas o programa ainda será compilado
+q = &j;//Não há problema
+p = &*&i;//Não há problema
+i = (*&)j;//É uma atribuição ilegal
+i = *&j;//Não há problema
+i = *&*&j;//Não há problema
+q = *p;//Há um problema nessa atribuição mas o programa ainda será compilado
+i = (*p)++ + *q;//Não há problema
 
