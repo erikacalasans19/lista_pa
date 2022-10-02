@@ -1,1 +1,24 @@
+#include <stdio.h>
 
+int main(void) {
+int pulo[3];
+  pulo [0] = 1;
+  pulo [1] = 2;
+  pulo [2] = 3;
+
+int p1 = *(pulo + 2);//CORRETO
+printf("%d\n", p1);
+
+int p2 = *(pulo + 4);
+printf("%d\n", p2);//ERRADO
+
+int *p3 = pulo + 4;
+printf("%d\n", *p3);//ERRADO
+
+int *p4 = pulo + 2;
+printf("%d\n", *p4);
+//CORRETO
+
+//Não é possível incrementar valores do tipo int aos ponteiros.
+  return 0;
+}
