@@ -1,1 +1,15 @@
+#include <stdio.h>
 
+int main(){
+  int vet[] = {4,9,13};
+  int i;
+  for(i=0;i<3;i++){
+  printf("%d ",*(vet+i));
+  }
+   return 0;
+}
+ //O programa começa declarando um array "vet" e
+ uma variável i. Após isso, é utilizado um laço de repetição "for" 
+ e a função "printf" para imprimir o conteúdo da memória do endereço do array "vet" 
+ e a cada incremento da variável "i", o programa irá percorrer os elementos do array de
+ 4 em 4 bytes até que  todos os elementos sejam mostrados.
