@@ -1,18 +1,32 @@
  #include <stdio.h>
  #include <stdlib.h>
-        
+
+   float ordenar(float *p, float n){
+   float aux;
+  
+  for(int i = 0; i < n; i++){
+    for(int j = 0; i < n; j++){
+      if(p[i] > p[j]){
+        aux = p[j];
+        p[j] = aux;
+        }
+       }
+      }
+     }
+
     int main()
     {
-      int *p;
-      int i, x, y, z, temp, n;
+      float n;
+      float *p, aux;
+      int i, x, y,z, temp;
       printf("Quantos números serão ordenados? ");
-      scanf("%d", &n);
-      p = (int *) malloc( n * sizeof(int) );
+      scanf("%f", &n);
+      p = (float *) malloc( n * sizeof(float) );
       
      
       for (i=0; i<n; i++){
           printf("%d.º numero: ",i+1);
-          scanf("%d",&p[i]);}
+          scanf("%f",&p[i]);}
       
       for( x=0; x<=n-1; x++){
          z = p[x];
@@ -29,7 +43,7 @@
       printf("\n");
       
       for( i=0; i<n; i++ ){
-        printf("%d ", p[i]);
+        printf("%.3f ", p[i]);
       }
       free( p );
       return 0;
