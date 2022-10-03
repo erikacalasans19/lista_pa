@@ -8,11 +8,18 @@
 
       if(*(float*)x > (*(float*)y)) {
         return 1;
+        // se o primeiro for maior que o segundo,
+        a função irá retornar o valor 1.
       }
       if(*(float*)x < (*(float*)y)) {
         return -1;
+        // se o primeiro for menor que o segundo,
+        a função irá retornar o valor -1.
+ 
       } else { 
         return 0;
+        // se o primeiro for igual ao segundo,
+        a função irá retornar o valor 0.
          }
        }
 
@@ -22,21 +29,28 @@
       int i;
       float *p, aux;
 
+      // O usuário dever inserir quantos números serão ordenados
       printf("Quantos números serão ordenados? ");
       scanf("%d", &n);
       p = (float*) malloc( n * (sizeof(float)));
       
+     //  O usuário deve inserr quais números serão ordenados
       for (i=0; i<n; i++){
           printf("%d.º numero: ",i+1);
           scanf("%f",&p[i]);}
-      // A função "qsort()" vai receber 4 parâmetros ( um ponteiro para o primeiro elemento, quantidade de elementos,
+     
+     // A função "qsort()" vai receber 4 parâmetros ( um ponteiro para o primeiro elemento, quantidade de elementos,
       o tamanho em bytes de cada elemento e um ponteiro para a função "comparacao".)
       
       qsort(p,n, sizeof (float), comparacao);
+      
+      // Os números serão impressos em ordem crescente
       printf("Números em ordem crescente:\n");
       for(int i = 0; i < n; i++){
-    printf("%.2f  ", *(p+ i));
+      printf("%.2f  ", *(p+ i));
      }
+     
+     // Memória alocada é liberada
       free(p);
       
       return 0;
