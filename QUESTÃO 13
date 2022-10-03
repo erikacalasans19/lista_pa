@@ -1,1 +1,36 @@
-
+ #include <stdio.h>
+ #include <stdlib.h>
+        
+    int main()
+    {
+      int *p;
+      int i, x, y, z, temp, n;
+      printf("Quantos números serão ordenados? ");
+      scanf("%d", &n);
+      p = (int *) malloc( n * sizeof(int) );
+      
+     
+      for (i=0; i<n; i++){
+          printf("%d.º numero: ",i+1);
+          scanf("%d",&p[i]);}
+      
+      for( x=0; x<=n-1; x++){
+         z = p[x];
+         y = x;
+          for( i=x; i<=n-1; i++){
+            if( p[i] < z ){
+                z = p[i];
+                y = i;}
+               }
+        temp = p[x];
+        p[x] = p[y];
+        p[y] = temp;}
+       
+      printf("\n");
+      
+      for( i=0; i<n; i++ ){
+        printf("%d ", p[i]);
+      }
+      free( p );
+      return 0;
+    }
