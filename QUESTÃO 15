@@ -1,1 +1,58 @@
+#include <stdio.h>
+#include <stdlib.h>
 
+int comparacao(const void *a, const void *b){
+  // A função irá comparar dois valores, enviados pela função qsort(), e irá retornar qual deles é o maior;
+  
+  if (*(float*)a > *(float*)b) { // Se o 1º valor é maior que o 2º, ele retornará 1;
+      return 1;
+   } else if (*(float*)a < *(float*)b) { // Se o 1º valor é maior que o 2º, ele retornará -1;
+      return -1;
+   } else { // Se os dois valores forem iguais, ele retornará 0;
+      return 0;
+   }
+}
+
+void ordenacao (float *p, int n, int (*comparacao (const void *x)) (const void *y)){
+  float aux; 
+
+  for(int i = 0; i < n; i++){
+    for(int j = i+1; j<n; j++){
+      if(comparacao((p+i), (p+j)) == 1){
+        aux = p[i];
+        p[i] = p[j];
+        p[j] = aux;
+        
+      }
+    }
+  }  
+}
+
+int main(void) {
+  int n;
+  float *p, aux;
+
+ // O usuário dever inserir quantos números serão ordenados
+      printf("Quantos números serão ordenados? ");
+      scanf("%d", &n);
+      p = (float*) malloc( n * (sizeof(float)));
+      
+ //  O usuário deve inserir quais números serão ordenados
+      for (int i=0; i<n; i++){
+          printf("%d.º numero: ",i+1);
+          scanf("%f",&p[i]);}
+     
+
+
+  ordenacao(p, n, comparacao); 
+  printf("Os numeros na ordem crescente sao:\n");
+  for(int i = 0; i < n; i++){
+    printf("%f\n", *(p + i));
+  }
+  // A função "ordenação"recebe 3 parâmetros, um ponteiro para o primeiro elemento, a quantidade de elementos e 
+  um ponteiro pra uma função que fará a comparação.
+  
+  free(p); //Memória alocada é liberada
+  
+  return 0;
+}
