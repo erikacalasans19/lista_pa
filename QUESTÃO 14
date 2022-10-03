@@ -34,7 +34,7 @@
       scanf("%d", &n);
       p = (float*) malloc( n * (sizeof(float)));
       
-     //  O usuário deve inserr quais números serão ordenados
+     //  O usuário deve inserir quais números serão ordenados
       for (i=0; i<n; i++){
           printf("%d.º numero: ",i+1);
           scanf("%f",&p[i]);}
