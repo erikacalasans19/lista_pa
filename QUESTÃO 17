@@ -1,1 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
 
+void soma( int *a, int *b, int *c, int elementos){ 
+int i;
+ 
+  for (i = 0; i < elementos; i++){
+     c[i] = a[i] + b[i];
+   }
+
+   }
+
+int main(void) {
+  int i, elementos;
+  int a[elementos], b[elementos], c[elementos];
+
+  
+  printf("Quantos elementos os vetores vão ter?");
+  scanf("%d", &elementos);
+  
+  a[elementos] = (int*) malloc(elementos * (sizeof(int)));
+   b[elementos] = (int*) malloc(elementos * (sizeof(int)));
+   c[elementos] = (int*) malloc(elementos * (sizeof(int)));
+  
+
+  for(i = 0; i < elementos; i++){
+  printf("%d.º elemento de A: ",i+1);
+  scanf("%d", &a[i]);
+   }
+  for(i = 0; i < elementos; i++){
+  printf("%d.º elemento de B: ",i+1);
+  scanf("%d", &b[i]);
+  }
+
+   soma(a,b, c, elementos);
+  
+  printf("\nVetor resultante da soma entre os vetores A e B: ");
+    for(int i = 0; i < elementos; i++){
+      printf("%d ", c[i]);
+    }
+  
+  return 0;
+}
