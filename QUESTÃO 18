@@ -1,1 +1,123 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void multiplicacao(int **a, int **b, int **c, int lin_a, int col_a, int lin_b, int col_b){
+  int aux;
+  //A função irá realizar o processo de multiplicação de matrizes
+  for(int i = 0; i < lin_a; i++){
+    for(int j = 0; j < col_b; j++){
+      aux = 0;
+      for(int k = 0; k < col_a; k++){
+        aux = (a[i][k] * b[k][j]) + aux;
+      }
+      *(*(c+i)+j) = aux;
+    }
+  }
+}
+
+int main(void) {
+
+    int col_a = 3, lin_a = 3, col_b = 3, lin_b = 3, col_c = 3, lin_c = 3;
+  int **a, **b, **c;
+
+  // Alocação das linhas de cada matriz.
+  a = (int**) malloc(lin_a*(sizeof(int*)));
+  b = (int**) malloc(lin_b*(sizeof(int*)));
+  c = (int**) malloc(lin_c*(sizeof(int*)));
+
+  //Alocação das colunas de cada matriz.
+  for(int i = 0; i < col_a; i++){
+    a[i] = (int*) malloc(col_a*(sizeof(int)));
+  }
+  for(int i = 0; i < col_b; i++){
+    b[i] = (int*) malloc(col_b*(sizeof(int)));
+  }
+  for(int i = 0; i < col_c; i++){
+    c[i] = (int*) malloc(col_c*(sizeof(int)));
+  }
+
+  //Matriz A:
+
+  for(int i = 0; i < lin_a; i++){
+    for(int j = 0; j < col_a; j++){
+      a[i][j] = rand()%20;
+    }
+  }
+
+  //Matriz B:
+   for(int i = 0; i < lin_b; i++){
+    for(int j = 0; j < col_b; j++){
+      b[i][j] = rand()%20;
+    }
+  }
+
+ //Função "multiplicacao" é retomada para realizar a multiplicação de matrizes:
+
+  multiplicacao(a, b, c, lin_a, col_a, lin_b, col_b);
+
+  //Imprimindo a Matriz A:
+  printf("\n");
+  printf("--- Matriz A ---\n");
+  for(int i = 0; i < lin_a; i++){
+    for(int j = 0; j < col_a; j++){
+      printf(" %d ", a[i][j]);
+    }
+    printf("\n");
+  }
+    printf("\n");
+ 
+  //Imprimindo a Matriz B:
+   printf("\n");
+  printf("--- Matriz B ---:\n");
+  for(int i = 0; i < lin_b; i++){
+    for(int j = 0; j < col_b; j++){
+      printf(" %d ", b[i][j]);
+    }
+    printf("\n");
+  } 
+   printf("\n");
+   
+  //Imprimindo a Matriz C
+  printf("--- Matriz C ---\n");
+  for(int i = 0; i < lin_c; i++){
+    for(int j = 0; j < col_c; j++){
+      printf(" %d ", c[i][j]);
+    }
+    printf("\n");
+  }
+
+  //Memória alocada é liberada:
+  for(int i = 0; i < lin_a; i++){
+    free(a[i]);
+  }
+  for(int i = 0; i < lin_b; i++){
+    free(b[i]);
+  }
+  for(int i = 0; i < lin_c; i++){
+    free(c[i]);
+  }
+  free(a);
+  free(b);
+  free(c);
+
+  return 0;
+}
+
+//RESULTADO:
+//--- Matriz A ---
+// 3   6    17 
+// 15  13   15 
+// 6   12    9 
+
+
+//--- Matriz B ---
+//  1  2   7 
+// 10  19  3 
+//  6  0   6 
+
+//--- Matriz C ---
+// 165  120  141 
+// 235  277  234 
+// 180  240  132 
+ 
 
